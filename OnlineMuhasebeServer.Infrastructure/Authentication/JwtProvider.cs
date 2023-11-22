@@ -21,7 +21,7 @@ namespace OnlineMuhasebeServer.Infrastructure.Authentication
             _userManager = userManager;
         }
 
-        public async Task<string> CreateToken(AppUser user, List<string> roles)
+        public async Task<string> CreateTokenAsync(AppUser user, List<string> roles)
         {
             var claims = new Claim[]
             {
@@ -50,11 +50,6 @@ namespace OnlineMuhasebeServer.Infrastructure.Authentication
             await _userManager.UpdateAsync(user);
 
             return token;
-        }
-
-        public Task<string> CreateTokenAsync(AppUser user, List<string> roles)
-        {
-            throw new NotImplementedException();
         }
     }
 }
