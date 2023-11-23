@@ -8,7 +8,7 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
     {
         public void Install(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IJwtProvider, JwtProvider>();
+            services.AddScoped<IJwtProvider,JwtProvider>();
         }
     }
 }

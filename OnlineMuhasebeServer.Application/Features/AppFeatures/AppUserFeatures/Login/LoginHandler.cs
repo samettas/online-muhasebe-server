@@ -17,16 +17,12 @@ namespace OnlineMuhasebeServer.Application.Features.AppFeatures.AppUserFeatures.
             _userManager = userManager;
         }
 
+
         public async Task<LoginResponse> Handle(LoginRequest request, CancellationToken cancellationToken)
         {
             AppUser user = await _userManager.Users.Where(p => p.Email == request.EmailOrUserName || p.UserName == request.EmailOrUserName).FirstOrDefaultAsync();
 
-            if (user == null)
-            {
-                throw new Exception("Kullanıcı bulunamadı!");
-                Console.WriteLine("Kullanıcı bulunamadı");
-            }
-                
+            if (user == null) throw new Exception("Kullanıcı bulunamadı!");                
 
             var checkUser = await _userManager.CheckPasswordAsync(user, request.Password);
             if (!checkUser) throw new Exception("Şifre yanlış!");

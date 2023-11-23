@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 using OnlineMuhasebeServer.WebApi.Configurations;
 
@@ -27,7 +28,8 @@ app.MapControllers();
 using (var scoped = app.Services.CreateScope())
 {
     var userManager = scoped.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-    if(!userManager.Users.Any())
+
+    if (!userManager.Users.Any())
     {
         userManager.CreateAsync(new AppUser
         {
@@ -35,9 +37,9 @@ using (var scoped = app.Services.CreateScope())
             Email = "admin@gmail.com",
             Id = Guid.NewGuid().ToString(),
             NameLastName = "Samet Tas",
-        },"admin").Wait();
-  
+        }, "admin@samet").Wait();
     }
 }
+
 
 app.Run();
