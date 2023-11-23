@@ -25,7 +25,7 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
             _mapper = mapper;
         }
 
-        public async Task createUcafAsync(CreateUCAFRequest request)
+        public async Task createUcafAsync(CreateUCAFCommand request)
         {
             _context = (CompanyDbContext)_contextService.CreateDbContextInstance(request.CompanyId);
             _commandRepository.SetDbContextInstance(_context);

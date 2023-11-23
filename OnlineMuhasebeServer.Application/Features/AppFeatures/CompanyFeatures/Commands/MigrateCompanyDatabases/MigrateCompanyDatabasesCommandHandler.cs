@@ -1,10 +1,11 @@
 ﻿using MediatR;
+using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Application.Services.AppService;
 
 namespace OnlineMuhasebeServer.Application.Features.AppFeatures.CompanyFeatures.Commands.MigrateCompanyDatabase
 {
     public sealed class MigrateCompanyDatabasesHandler : 
-        IRequestHandler<MigrateCompanyDatabasesRequest, MigrateCompanyDatabasesResponse>
+        ICommandHandler<MigrateCompanyDatabasesCommand, MigrateCompanyDatabasesCommandResponse>
     {
         private readonly ICompanyService _companyService;
 
@@ -13,7 +14,7 @@ namespace OnlineMuhasebeServer.Application.Features.AppFeatures.CompanyFeatures.
             _companyService = companyService;
         }
 
-        public async Task<MigrateCompanyDatabasesResponse> Handle(MigrateCompanyDatabasesRequest request, CancellationToken cancellationToken)
+        public async Task<MigrateCompanyDatabasesCommandResponse> Handle(MigrateCompanyDatabasesCommand request, CancellationToken cancellationToken)
         {
             await _companyService.MigrateCompanyDatabases();
             return new();

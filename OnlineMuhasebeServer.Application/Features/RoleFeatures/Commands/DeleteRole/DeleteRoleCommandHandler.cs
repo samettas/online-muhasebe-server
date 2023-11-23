@@ -1,19 +1,19 @@
-﻿using MediatR;
+﻿using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Application.Services.AppService;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
 namespace OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.DeleteRole
 {
-    public sealed class DeleteRoleHandler : IRequestHandler<DeleteRoleRequest, DeleteRoleResponse>
+    public sealed class DeleteRoleCommandHandler : ICommandHandler<DeleteRoleCommand, DeleteRoleCommandResponse>
     {
         private readonly IRoleService _roleService;
 
-        public DeleteRoleHandler(IRoleService roleService)
+        public DeleteRoleCommandHandler(IRoleService roleService)
         {
             _roleService = roleService;
         }
 
-        public async Task<DeleteRoleResponse> Handle(DeleteRoleRequest request, CancellationToken cancellationToken)
+        public async Task<DeleteRoleCommandResponse> Handle(DeleteRoleCommand request, CancellationToken cancellationToken)
         {
             AppRole role = await _roleService.GetById(request.Id);
             if(role == null) throw new Exception("Rol bulunamadı!");
