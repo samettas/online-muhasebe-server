@@ -31,18 +31,16 @@ app.MapControllers();
 using (var scoped = app.Services.CreateScope())
 {
     var userManager = scoped.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-
-    if (!userManager.Users.Any())
+    if(!userManager.Users.Any())
     {
         userManager.CreateAsync(new AppUser
         {
-            UserName = "samet",
-            Email = "admin@gmail.com",
+            UserName = "stas",
+            Email = "admin",
             Id = Guid.NewGuid().ToString(),
-            NameLastName = "Samet Tas",
-        }, "admin@samet").Wait();
+            NameLastName = "Samet Tas"
+        },"Password12*").Wait();
     }
 }
-
 
 app.Run();
