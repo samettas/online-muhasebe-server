@@ -1,6 +1,6 @@
 ﻿using OnlineMuhasebeServer.Application.Messaging;
 
-namespace OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.UpdateRole
+namespace OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.UpdateRole
 {
     public sealed record UpdateRoleCommand(
         string Id,

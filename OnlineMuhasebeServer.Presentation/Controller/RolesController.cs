@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.CreateRole;
-using OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.DeleteRole;
-using OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.UpdateRole;
-using OnlineMuhasebeServer.Application.Features.RoleFeatures.Queries.GetlAllRoles;
+using OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.CreateRole;
+using OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.DeleteRole;
+using OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.UpdateRole;
+using OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Queries.GetlAllRoles;
 using OnlineMuhasebeServer.Presentation.Abstraction;
 
 namespace OnlineMuhasebeServer.Presentation.Controller

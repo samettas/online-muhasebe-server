@@ -2,7 +2,7 @@
 using OnlineMuhasebeServer.Application.Services.AppService;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
-namespace OnlineMuhasebeServer.Application.Features.RoleFeatures.Queries.GetlAllRoles
+namespace OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Queries.GetlAllRoles
 {
     public sealed class GetAllRolesQueryHandler : IQueryHandler<GetAllRolesQuery, GetAllRolesQueryResponse>
     {

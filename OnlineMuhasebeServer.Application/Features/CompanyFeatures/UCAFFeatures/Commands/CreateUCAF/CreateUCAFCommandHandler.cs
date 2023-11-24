@@ -15,7 +15,7 @@ namespace OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures
 
         public async Task<CreateUCAFCommandResponse> Handle(CreateUCAFCommand request, CancellationToken cancellationToken)
         {
-            await _ucafservice.createUcafAsync(request);
+            await _ucafservice.createUcafAsync(request, cancellationToken);
             return new();
         }
     }

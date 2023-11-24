@@ -2,7 +2,7 @@
 using OnlineMuhasebeServer.Application.Services.AppService;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
-namespace OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.UpdateRole
+namespace OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.UpdateRole
 {
     public sealed class UpdateRoleCommandHandler : ICommandHandler<UpdateRoleCommand, UpdateRoleCommandResponse>
     {
@@ -18,7 +18,7 @@ namespace OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.Update
             AppRole role = await _roleService.GetById(request.Id);
             if (role == null) throw new Exception("Role bulunamadı!");
 
-            if(role.Code != request.Code)
+            if (role.Code != request.Code)
             {
                 AppRole checkCode = await _roleService.GetByCode(request.Code);
                 if (checkCode != null) throw new Exception("Bu kod daha önce kullanılmış!");

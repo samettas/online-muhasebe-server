@@ -23,14 +23,14 @@ namespace OnlineMuhasebeServer.Presentation.Repositories
             Entity = _context.Set<T>();
         }
 
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(T entity, CancellationToken cancellationToken)
         {
-            await Entity.AddAsync(entity);
+            await Entity.AddAsync(entity, cancellationToken);
         }
 
-        public async Task AddRangeAsync(IEnumerable<T> entities)
+        public async Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken)
         {
-            await Entity.AddRangeAsync(entities);
+            await Entity.AddRangeAsync(entities, cancellationToken);
         }
 
         public void Remove(T entity)

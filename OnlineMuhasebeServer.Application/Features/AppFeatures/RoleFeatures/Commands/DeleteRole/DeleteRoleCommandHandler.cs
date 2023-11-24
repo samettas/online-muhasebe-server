@@ -2,7 +2,7 @@
 using OnlineMuhasebeServer.Application.Services.AppService;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
-namespace OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.DeleteRole
+namespace OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.DeleteRole
 {
     public sealed class DeleteRoleCommandHandler : ICommandHandler<DeleteRoleCommand, DeleteRoleCommandResponse>
     {
@@ -16,7 +16,7 @@ namespace OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.Delete
         public async Task<DeleteRoleCommandResponse> Handle(DeleteRoleCommand request, CancellationToken cancellationToken)
         {
             AppRole role = await _roleService.GetById(request.Id);
-            if(role == null) throw new Exception("Rol bulunamadı!");
+            if (role == null) throw new Exception("Rol bulunamadı!");
             await _roleService.DeleteAsync(role);
 
             return new();

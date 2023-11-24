@@ -1,4 +1,4 @@
-﻿namespace OnlineMuhasebeServer.Application.Features.RoleFeatures.Commands.UpdateRole
+﻿namespace OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.UpdateRole
 {
     public sealed record UpdateRoleCommandResponse(
         string Message = "Rol güncelleme işlemi başarıyla tamamlandı!");
