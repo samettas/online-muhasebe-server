@@ -5,7 +5,7 @@ using OnlineMuhasebeServer.Application.Abstractions;
 using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
-namespace OnlineMuhasebeServer.Application.Features.AppFeatures.AppUserFeatures.Login
+namespace OnlineMuhasebeServer.Application.Features.AppFeatures.AppUserFeatures.Commands.Login
 {
     public class LoginCommandHandler : ICommandHandler<LoginCommand, LoginCommandResponse>
     {
@@ -23,7 +23,7 @@ namespace OnlineMuhasebeServer.Application.Features.AppFeatures.AppUserFeatures.
         {
             AppUser user = await _userManager.Users.Where(p => p.Email == request.EmailOrUserName || p.UserName == request.EmailOrUserName).FirstOrDefaultAsync();
 
-            if (user == null) throw new Exception("Kullanıcı bulunamadı!");                
+            if (user == null) throw new Exception("Kullanıcı bulunamadı!");
 
             var checkUser = await _userManager.CheckPasswordAsync(user, request.Password);
             if (!checkUser) throw new Exception("Şifre yanlış!");
