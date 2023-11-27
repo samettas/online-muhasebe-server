@@ -42,10 +42,10 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
             await _unitOfWork.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<UniformChartOfAccount> GetByCode(string code)
+        public async Task<UniformChartOfAccount> GetByCode(string code, CancellationToken cancellationToken)
         {
             return await _queryRepository.GetFirstByExpiression(
-                p => p.Code == code);
+                p => p.Code == code, cancellationToken);
         }
     }
 }

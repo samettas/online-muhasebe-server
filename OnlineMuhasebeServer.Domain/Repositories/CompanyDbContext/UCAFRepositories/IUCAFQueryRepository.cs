@@ -3,7 +3,7 @@ using OnlineMuhasebeServer.Domain.Repositories.GenericRepositories.CompanyDbCont
 
 namespace OnlineMuhasebeServer.Domain.Repositories.CompanyDbContext.UCAFRepositories
 {
-    public interface IUCAFQueryRepository : IQueryRepository<UniformChartOfAccount>
+    public interface IUCAFQueryRepository : ICompanyDbQueryRepository<UniformChartOfAccount>
     {
     }
 }

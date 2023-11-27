@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Application.Services.AppService;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 using Shouldly;
 
-namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.RoleFeatures.Command
+namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.RoleFeatures
 {
     public sealed class DeleteRoleCommandUnitTest
     {
@@ -19,7 +19,7 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.RoleFeatures.Comman
         public async Task AppRoleShouldNotBeNull()
         {
             _roleServiceMock.Setup(
-                x=> x.GetById(It.IsAny<string>()))
+                x => x.GetById(It.IsAny<string>()))
                 .ReturnsAsync(new AppRole());
         }
 

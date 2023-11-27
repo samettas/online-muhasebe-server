@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Application.Services.CompanyService;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
 using Shouldly;
 
-namespace OnlineMuhasebeServer.UnitTest.Features.CompanyFeatures.Commands
+namespace OnlineMuhasebeServer.UnitTest.Features.CompanyFeatures
 {
     public sealed class CreateUCAFCommandUnitTest
     {
@@ -18,7 +18,7 @@ namespace OnlineMuhasebeServer.UnitTest.Features.CompanyFeatures.Commands
         [Fact]
         public async Task UCAFShouldBeNull()
         {
-            UniformChartOfAccount ucaf = await _ucafService.Object.GetByCode("0000000");
+            UniformChartOfAccount ucaf = await _ucafService.Object.GetByCode("0000000", default);
             ucaf.ShouldBeNull();
         }
 

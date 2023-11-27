@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.CompanyDbContext
 {
-    public class CompanyDbQueryRepository<T> : IQueryRepository<T> 
+    public class CompanyDbQueryRepository<T> : ICompanyDbQueryRepository<T> 
         where T : Entity
     {
         private static readonly Func<Context.CompanyDbContext, string, bool, Task<T>>
@@ -49,7 +49,7 @@ namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.Comp
             return await GetFirstCompiled(_context, isTracking);
         }
 
-        public async Task<T> GetFirstByExpiression(Expression<Func<T, bool>> expression, bool isTracking = true)
+        public async Task<T> GetFirstByExpiression(Expression<Func<T, bool>> expression, CancellationToken cancellationToken= default ,bool isTracking = true)
         {
             T entity = null;
             if (!isTracking)
