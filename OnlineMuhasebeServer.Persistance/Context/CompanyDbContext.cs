@@ -26,7 +26,7 @@ namespace OnlineMuhasebeServer.Persistance.Context
                     ConnectionString = $"" +
                         $"Data Source={company.ServerName}" + $"\\SQLEXPRESS;" +
                         $"Initial Catalog={company.DatabaseName};" +
-                        $"UserId={company.ServerUserId};" +
+                        $"User Id={company.ServerUserId};" +
                         $"Password={company.ServerPassword};" +
                         $"Integrated Security=True;" +
                         $"Connect Timeout=30;" +
