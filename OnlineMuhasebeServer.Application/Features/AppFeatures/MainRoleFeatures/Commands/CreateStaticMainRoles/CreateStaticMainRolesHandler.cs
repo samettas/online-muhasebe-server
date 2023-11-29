@@ -1,12 +1,7 @@
 ﻿using OnlineMuhasebeServer.Application.Messaging;
-using OnlineMuhasebeServer.Application.Services.AppService;
+using OnlineMuhasebeServer.Application.Services.AppServices;
 using OnlineMuhasebeServer.Domain.AppEntities;
 using OnlineMuhasebeServer.Domain.Roles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineMuhasebeServer.Application.Features.AppFeatures.MainRoleFeatures.Commands.CreateStaticMainRoles
 {

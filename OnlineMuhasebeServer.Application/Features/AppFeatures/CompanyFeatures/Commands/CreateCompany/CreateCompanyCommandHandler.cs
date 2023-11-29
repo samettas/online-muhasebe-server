@@ -1,5 +1,5 @@
 ﻿using OnlineMuhasebeServer.Application.Messaging;
-using OnlineMuhasebeServer.Application.Services.AppService;
+using OnlineMuhasebeServer.Application.Services.AppServices;
 using OnlineMuhasebeServer.Domain.AppEntities;
 
 namespace OnlineMuhasebeServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany

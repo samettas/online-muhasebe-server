@@ -2,7 +2,7 @@
 using MediatR;
 using OnlineMuhasebeServer.Domain.AppEntities;
 
-namespace OnlineMuhasebeServer.Application.Services.AppService
+namespace OnlineMuhasebeServer.Application.Services.AppServices
 {
     public interface IMainRoleService
     {

@@ -2,7 +2,7 @@
 using OnlineMuhasebeServer.Application.Features.AppFeatures.RoleFeatures.Commands.UpdateRole;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
-namespace OnlineMuhasebeServer.Application.Services.AppService
+namespace OnlineMuhasebeServer.Application.Services.AppServices
 {
     public interface IRoleService
     {

@@ -1,9 +1,9 @@
-﻿using OnlineMuhasebeServer.Application.Services.AppService;
+﻿using OnlineMuhasebeServer.Application.Services.AppServices;
 using OnlineMuhasebeServer.Domain.AppEntities;
 using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleReposittories;
 using OnlineMuhasebeServer.Domain.UnitOfWorks;
 
-namespace OnlineMuhasebeServer.Persistance.Services.AppService
+namespace OnlineMuhasebeServer.Persistance.Services.AppServices
 {
     public sealed class MainRoleService : IMainRoleService
     {
