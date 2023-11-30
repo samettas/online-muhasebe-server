@@ -3,8 +3,8 @@
 <!-- Version: 14.0.50929.2 -->
 <ImageManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/ImageManifestSchema/2014">
   <Symbols>
-    <String Name="Resources" Value="/OnlineMuhasebeServer.UnitTest;Component/../OnlineMuhasebeServer.UnitTest" />
-    <Guid Name="MonikersGuid" Value="{eee868f8-b915-455c-a079-bd24b30acc4d}" />
+    <String Name="Resources" Value="/OnlineMuhasebeServer.Application;Component/../OnlineMuhasebeServer.Application" />
+    <Guid Name="MonikersGuid" Value="{1563df8b-2b20-44c5-ae3e-89103caa3f66}" />
   </Symbols>
   <Images />
   <ImageLists />

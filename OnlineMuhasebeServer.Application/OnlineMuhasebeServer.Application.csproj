@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Monikers.imagemanifest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <content Include="Monikers.imagemanifest">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.8.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.1" />
     <PackageReference Include="MediatR" Version="11.1.0" />
@@ -14,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Features\AppFeatures\AppUserFeatures\Queries\" />
+    <Folder Include="Features\AppFeatures\UserAndCompanyRLFeatures\Queries\" />
     <Folder Include="Features\CompanyFeatures\UCAFFeatures\Queries\" />
   </ItemGroup>
 

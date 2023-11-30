@@ -41,8 +41,10 @@ public class PersistanceDIServiceInstaller : IServiceInstaller
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IMainRoleService, MainRoleService>();
             services.AddScoped<IMainRoleAndRoleRelationshipService, MainRoleAndRoleRelationshipService>();
-            //AppServiceDISpot
-            #endregion
+            services.AddScoped<IMainRoleAndUserRelationshipService, MainRoleAndUserRelationshipService>();
+            services.AddScoped<IUserAndCompanyRelationshipService, UserAndCompanyRelationshipService>();
+        //AppServiceDISpot
+        #endregion
         #endregion
 
         #region Repositories
@@ -54,12 +56,16 @@ public class PersistanceDIServiceInstaller : IServiceInstaller
             #region AppDbContext
             services.AddScoped<ICompanyCommandRepository, CompanyCommandRepository>();
             services.AddScoped<ICompanyQueryRepository, CompanyQueryRepository>();
+
             services.AddScoped<IMainRoleCommandRepository, MainRoleCommandRepository>();
             services.AddScoped<IMainRoleQueryRepository, MainRoleQueryRepository>();
+
             services.AddScoped<IMainRoleAndUserRelationshipCommandRepository, MainRoleAndUserRelationshipCommandRepository>();
             services.AddScoped<IMainRoleAndUserRelationshipQueryRepository, MainRoleAndUserRelationshipQueryRepository>();
+
             services.AddScoped<IMainRoleAndRoleRelationshipCommandRepository, MainRoleAndRoleRelationshipCommandRepository>();
             services.AddScoped<IMainRoleAndRoleRelationshipQueryRepository, MainRoleAndRoleRelationshipQueryRepository>();
+
             services.AddScoped<IUserAndCompanyRelationshipCommandRepository, UserAndCompanyRelationshipCommandRepository>();
             services.AddScoped<IUserAndCompanyRelationshipQueryRepository, UserAndCompanyRelationshipQueryRepository>();
             //AppRepositoryDISpot
