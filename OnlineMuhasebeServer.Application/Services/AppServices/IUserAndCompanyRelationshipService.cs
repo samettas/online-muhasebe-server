@@ -8,4 +8,5 @@ public interface IUserAndCompanyRelationshipService
     Task RemoveByIdAsync(string id);
     Task<UserAndCompanyRelationship> GetById(string id);
     Task<UserAndCompanyRelationship> GetByUserIdAndCompanyId(string userId, string companyId, CancellationToken cancellationToken);
+    Task<IList<UserAndCompanyRelationship>> GetListByUserId(string userId);
 }

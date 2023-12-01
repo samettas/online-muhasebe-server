@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\AppFeatures\AppUserFeatures\Commands\" />
     <Folder Include="Features\AppFeatures\AppUserFeatures\Queries\" />
     <Folder Include="Features\AppFeatures\MainRoleAndUserRLFeatures\Queries\" />
     <Folder Include="Features\AppFeatures\UserAndCompanyRLFeatures\Queries\" />

@@ -9,5 +9,6 @@ namespace OnlineMuhasebeServer.Application.Services.AppServices
         Task <MainRoleAndUserRelationship> GetByUserIdCompanyIdAndMainRoleIdAsync(string userId, string companyId, string mainRoleId, CancellationToken cancellationToken);
 
         Task<MainRoleAndUserRelationship> GetByIdAsync(string id, bool tracking);
+        Task<MainRoleAndUserRelationship> GetRolesByUserIdAndCompanyId(string userId, string companyId);
     }
 }
