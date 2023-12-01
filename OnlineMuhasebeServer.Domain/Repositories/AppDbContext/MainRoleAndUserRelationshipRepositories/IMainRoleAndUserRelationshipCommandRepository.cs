@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Domain.Repositories.GenericRepositories.AppDbContext;
 
 namespace OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleAndUserRelationshipsRepositories;
 
-public interface IMainRoleAndUserRelationshipCommandRepository : IAppCommandRepository<MainRoleAndUserRelationships>
+public interface IMainRoleAndUserRelationshipCommandRepository : IAppCommandRepository<MainRoleAndUserRelationship>
 {
 
 }

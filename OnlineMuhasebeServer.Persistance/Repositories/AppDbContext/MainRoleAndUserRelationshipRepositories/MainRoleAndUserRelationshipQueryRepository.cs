@@ -4,7 +4,7 @@ using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleAndUserRelat
 
 namespace OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleAndUserRelationshipsRepositories;
 
-public class MainRoleAndUserRelationshipQueryRepository : AppQueryRepository<MainRoleAndUserRelationships>, IMainRoleAndUserRelationshipQueryRepository
+public class MainRoleAndUserRelationshipQueryRepository : AppQueryRepository<MainRoleAndUserRelationship>, IMainRoleAndUserRelationshipQueryRepository
 {
     public MainRoleAndUserRelationshipQueryRepository(Persistance.Context.AppDbContext context) : base(context){ }
 }
