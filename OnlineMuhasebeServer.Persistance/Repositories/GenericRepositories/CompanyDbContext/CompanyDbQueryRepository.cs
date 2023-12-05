@@ -11,16 +11,12 @@ namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.Comp
         private static readonly Func<Context.CompanyDbContext, string, bool, Task<T>>
             GetByIdCompiled =
             EF.CompileAsyncQuery((Context.CompanyDbContext context, string id, bool isTracking) =>
-            isTracking == true
-            ? context.Set<T>().FirstOrDefault(p => p.Id == id)
-            : context.Set<T>().AsNoTracking().FirstOrDefault(p => p.Id == id));
+            context.Set<T>().AsNoTracking().FirstOrDefault(p => p.Id == id));
 
         private static readonly Func<Context.CompanyDbContext, bool, Task<T>>
             GetFirstCompiled =
             EF.CompileAsyncQuery((Context.CompanyDbContext context, bool isTracking) =>
-            isTracking == true
-            ? context.Set<T>().FirstOrDefault()
-            : context.Set<T>().AsNoTracking().FirstOrDefault());
+            context.Set<T>().AsNoTracking().FirstOrDefault());
 
         private Context.CompanyDbContext _context;
         public DbSet<T> Entity { get; set; }
