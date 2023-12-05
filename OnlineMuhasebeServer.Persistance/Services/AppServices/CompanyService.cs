@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Application.Features.AppFeatures.CompanyFeatures.Commands.CreateCompany;
 using OnlineMuhasebeServer.Application.Services.AppServices;
+using OnlineMuhasebeServer.Application.Services.CompanyService;
 using OnlineMuhasebeServer.Domain.AppEntities;
 using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.CompanyRepositories;
 using OnlineMuhasebeServer.Domain.UnitOfWorks;
@@ -30,6 +31,7 @@ namespace OnlineMuhasebeServer.Persistance.Services.AppServices
             company.Id = Guid.NewGuid().ToString();
             await _companyCommandRepository.AddAsync(company, cancellationToken);
             await _appUnitOfWork.SaveChangesAsync(cancellationToken);
+
         }
 
         public IQueryable<Company> GetAll()

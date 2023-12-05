@@ -1,5 +1,4 @@
-﻿using MediatR;
-using OnlineMuhasebeServer.Application.Messaging;
+﻿using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Application.Services.CompanyService;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
 
@@ -16,9 +15,9 @@ namespace OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures
 
         public async Task<CreateUCAFCommandResponse> Handle(CreateUCAFCommand request, CancellationToken cancellationToken)
         {
-            UniformChartOfAccount ucaf = await _ucafService.GetByCode(request.Code, cancellationToken);
+            UniformChartOfAccount ucaf = await _ucafService.GetByCodeAsync(request.CompanyId, request.Code, cancellationToken);
             if (ucaf != null) throw new Exception("Bu hesap planı daha önceden oluşturulmuş!");
-            await _ucafService.createUcafAsync(request, cancellationToken);
+            await _ucafService.CreateUcafAsync(request, cancellationToken);
             return new();
         }
     }
