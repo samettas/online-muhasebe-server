@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateMainUCAF;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF;
@@ -9,6 +10,8 @@ using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Que
 using OnlineMuhasebeServer.Presentation.Abstraction;
 
 namespace OnlineMuhasebeServer.Presentation.Controller;
+
+[Authorize(AuthenticationSchemes = "Bearer")]
 
 public sealed class UCAFsController : ApiController
 {

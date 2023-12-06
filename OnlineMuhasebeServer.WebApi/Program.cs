@@ -22,14 +22,9 @@ app.UseExceptionMiddleware();
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
-
-app.UseAuthorization();
-
 app.UseCors();
 
 app.MapControllers();
-
 
 using (var scoped = app.Services.CreateScope())
 {
@@ -45,6 +40,5 @@ using (var scoped = app.Services.CreateScope())
         }, "Password12*").Wait();
     }
 }
-
 
 app.Run();
