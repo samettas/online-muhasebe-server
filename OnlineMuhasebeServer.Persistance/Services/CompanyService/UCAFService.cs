@@ -2252,6 +2252,13 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
                 p => p.Code == code, cancellationToken);
         }
 
+        public async Task<UniformChartOfAccount> GetByIdAsync(string id, string companyId)
+        {
+            _context = (CompanyDbContext)_contextService.CreateDbContextInstance(companyId);
+            _queryRepository.SetDbContextInstance(_context);
+            return await _queryRepository.GetById(id);
+        }
+
         public async Task RemoveByIdUcafAsync(string id, string companyId)
         {
             _context = (CompanyDbContext)_contextService.CreateDbContextInstance(companyId);
@@ -2259,6 +2266,16 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
             _unitOfWork.SetDbContextInstance(_context);
 
             await _commandRepository.RemoveById(id);
+            await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(UniformChartOfAccount ucaf, string companyId)
+        {
+            _context = (CompanyDbContext)_contextService.CreateDbContextInstance(companyId);
+            _commandRepository.SetDbContextInstance(_context);
+            _unitOfWork.SetDbContextInstance(_context);
+
+            _commandRepository.Update(ucaf);
             await _unitOfWork.SaveChangesAsync();
         }
     }
