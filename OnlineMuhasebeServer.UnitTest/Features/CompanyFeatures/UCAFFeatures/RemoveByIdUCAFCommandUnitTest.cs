@@ -1,9 +1,9 @@
 ﻿using Moq;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.RemoveByIdUCAF;
-using OnlineMuhasebeServer.Application.Services.CompanyService;
+using OnlineMuhasebeServer.Application.Services.CompanyServices;
 using Shouldly;
 
-namespace OnlineMuhasebeServer.UnitTest.Features.CompanyFeatures;
+namespace OnlineMuhasebeServer.UnitTest.Features.CompanyFeatures.UCAFFeatures;
 
 public sealed class RemoveByIdUCAFCommandUnitTest
 {
@@ -17,7 +17,7 @@ public sealed class RemoveByIdUCAFCommandUnitTest
     [Fact]
     public async Task CheckRemoveByIdUcafIsGroupAndAvailableShouldBeTrue()
     {
-        _ucafService.Setup(s => 
+        _ucafService.Setup(s =>
         s.CheckRemoveByIdUcafIsGroupAndAvailable(
         It.IsAny<string>(),
         It.IsAny<string>())).
@@ -29,7 +29,7 @@ public sealed class RemoveByIdUCAFCommandUnitTest
     {
         var command = new RemoveByIdUCAFCommand(
             Id: "8f397d90-47f3-4982-a1b5-9120e125850c",
-            CompanyId: "6d6d69aa-f579-4c8a-8886-0da214900f7f") ;
+            CompanyId: "6d6d69aa-f579-4c8a-8886-0da214900f7f");
 
         await CheckRemoveByIdUcafIsGroupAndAvailableShouldBeTrue();
 

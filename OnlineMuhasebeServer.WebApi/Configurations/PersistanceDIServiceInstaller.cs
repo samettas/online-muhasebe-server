@@ -1,23 +1,25 @@
 using OnlineMuhasebeServer.Application.Services.AppServices;
-using OnlineMuhasebeServer.Application.Services.CompanyService;
-using OnlineMuhasebeServer.Persistance.Services.AppServices;
-using OnlineMuhasebeServer.Persistance.Services.CompanyService;
-using OnlineMuhasebeServer.Persistance;
-using OnlineMuhasebeServer.Domain.Repositories.CompanyDbContext.UCAFRepositories;
-using OnlineMuhasebeServer.Persistance.Repositories.CompanyDbContext.UCAFRepositories;
-using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.CompanyRepositories;
-using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.CompanyRepositories;
-using OnlineMuhasebeServer.Domain.UnitOfWorks;
+using OnlineMuhasebeServer.Application.Services.CompanyServices;
 using OnlineMuhasebeServer.Domain;
-using OnlineMuhasebeServer.Persistance.UnitOfWorks;
-using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleReposittories;
-using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleRepositories;
-using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleAndUserRelationshipsRepositories;
-using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleAndUserRelationshipsRepositories;
+using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.CompanyRepositories;
 using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleAndRoleRelationshipRepositories;
-using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleAndRoleRelationshipRepositories;
+using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleAndUserRelationshipsRepositories;
+using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.MainRoleReposittories;
 using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.UserAndCompanyRelationshipRepositories;
+using OnlineMuhasebeServer.Domain.Repositories.CompanyDbContext.UCAFRepositories;
+using OnlineMuhasebeServer.Domain.UnitOfWorks;
+using OnlineMuhasebeServer.Persistance;
+using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.CompanyRepositories;
+using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleAndRoleRelationshipRepositories;
+using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleAndUserRelationshipsRepositories;
+using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.MainRoleRepositories;
 using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.UserAndCompanyRelationshipRepositories;
+using OnlineMuhasebeServer.Persistance.Repositories.CompanyDbContext.UCAFRepositories;
+using OnlineMuhasebeServer.Persistance.Services.AppServices;
+using OnlineMuhasebeServer.Persistance.Services.CompanyServices;
+using OnlineMuhasebeServer.Persistance.UnitOfWorks;
+using OnlineMuhasebeServer.Domain.Repositories.CompanyDbContext.ReportRepositories;
+using OnlineMuhasebeServer.Persistance.Repositories.CompanyDbContext.ReportRepositories;
 //UsingSpot
 namespace OnlineMuhasebeServer.WebApi.Configurations;
 
@@ -34,6 +36,7 @@ public class PersistanceDIServiceInstaller : IServiceInstaller
         #region Services
             #region CompanyDbContext
             services.AddScoped<IUCAFService, UCAFService>();
+            services.AddScoped<IReportService, ReportService>();
             //CompanyServiceDISpot
             #endregion
             #region AppDbContext
@@ -52,6 +55,8 @@ public class PersistanceDIServiceInstaller : IServiceInstaller
             #region CompanyDbContext
             services.AddScoped<IUCAFCommandRepository, UCAFCommandRepository>();
             services.AddScoped<IUCAFQueryRepository, UCAFQueryRepository>();
+            services.AddScoped<IReportCommandRepository, ReportCommandRepository>();
+            services.AddScoped<IReportQueryRepository, ReportQueryRepository>();
             //CompanyRepositoryDISpot
             #endregion
             #region AppDbContext

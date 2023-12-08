@@ -34,7 +34,7 @@ namespace OnlineMuhasebeServer.Persistance.Context
 
                 if(entry.State == EntityState.Modified)
                 {
-                    entry.Property(p=>p.UpdateDate).CurrentValue = DateTime.Now;
+                    entry.Property(p=>p.UpdatedDate).CurrentValue = DateTime.Now;
                 }
             }
 

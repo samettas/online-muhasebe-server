@@ -1,10 +1,10 @@
 ﻿using Moq;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.UpdateUCAF;
-using OnlineMuhasebeServer.Application.Services.CompanyService;
+using OnlineMuhasebeServer.Application.Services.CompanyServices;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
 using Shouldly;
 
-namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.UserAndCompanyRLFeatures;
+namespace OnlineMuhasebeServer.UnitTest.Features.CompanyFeatures.UCAFFeatures;
 
 public sealed class UpdateUCAFCommandUnitTest
 {

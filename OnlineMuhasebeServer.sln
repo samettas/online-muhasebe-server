@@ -23,9 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineMuhasebeServer.Presen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineMuhasebeServer.WebApi", "OnlineMuhasebeServer.WebApi\OnlineMuhasebeServer.WebApi.csproj", "{9D06C361-3A30-45EF-BDB5-B9F394794441}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{623E68EB-3E6A-4139-BACD-D073C4BFAAE9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMuhasebeServer.UnitTest", "OnlineMuhasebeServer.UnitTest\OnlineMuhasebeServer.UnitTest.csproj", "{BF14D28D-50E8-4F0D-B3B1-1939AF1FDAF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineMuhasebeServer.UnitTest", "OnlineMuhasebeServer.UnitTest\OnlineMuhasebeServer.UnitTest.csproj", "{BF14D28D-50E8-4F0D-B3B1-1939AF1FDAF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,7 +72,7 @@ Global
 		{6E47C7CE-8936-4DD8-A8CC-8BD6FF991506} = {C41B8605-88B9-4BE8-82D9-D663D2402424}
 		{0B369604-50B7-47BD-BFCE-9AA996BA2A49} = {C41B8605-88B9-4BE8-82D9-D663D2402424}
 		{9D06C361-3A30-45EF-BDB5-B9F394794441} = {E1962635-75B3-4AB1-BD3C-E633294E6B07}
-		{BF14D28D-50E8-4F0D-B3B1-1939AF1FDAF7} = {623E68EB-3E6A-4139-BACD-D073C4BFAAE9}
+		{BF14D28D-50E8-4F0D-B3B1-1939AF1FDAF7} = {300CD60A-769D-440A-9301-B6F7EEAD57A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C47E359E-48BD-4ACA-AFEC-D2F494C43F02}

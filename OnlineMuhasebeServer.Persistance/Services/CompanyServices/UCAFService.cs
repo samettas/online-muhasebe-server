@@ -2,14 +2,14 @@
 using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF;
-using OnlineMuhasebeServer.Application.Services.CompanyService;
+using OnlineMuhasebeServer.Application.Services.CompanyServices;
 using OnlineMuhasebeServer.Domain;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
 using OnlineMuhasebeServer.Domain.Repositories.CompanyDbContext.UCAFRepositories;
 using OnlineMuhasebeServer.Domain.UnitOfWorks;
 using OnlineMuhasebeServer.Persistance.Context;
 
-namespace OnlineMuhasebeServer.Persistance.Services.CompanyService
+namespace OnlineMuhasebeServer.Persistance.Services.CompanyServices
 {
     public sealed class UCAFService : IUCAFService
     {

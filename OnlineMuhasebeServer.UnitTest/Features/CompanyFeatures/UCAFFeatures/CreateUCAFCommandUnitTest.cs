@@ -1,10 +1,10 @@
 ﻿using Moq;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.UCAFFeatures.Commands.CreateUCAF;
-using OnlineMuhasebeServer.Application.Services.CompanyService;
+using OnlineMuhasebeServer.Application.Services.CompanyServices;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
 using Shouldly;
 
-namespace OnlineMuhasebeServer.UnitTest.Features.CompanyFeatures;
+namespace OnlineMuhasebeServer.UnitTest.Features.CompanyFeatures.UCAFFeatures;
 
 public sealed class CreateUCAFCommandUnitTest
 {
@@ -20,7 +20,7 @@ public sealed class CreateUCAFCommandUnitTest
     {
         string companyId = "6d6d69aa-f579-4c8a-8886-0da214900f7f";
         string code = "100.01.001";
-        UniformChartOfAccount ucaf = await _ucafService.Object.GetByCodeAsync(companyId, code , default);
+        UniformChartOfAccount ucaf = await _ucafService.Object.GetByCodeAsync(companyId, code, default);
         ucaf.ShouldBeNull();
     }
 
