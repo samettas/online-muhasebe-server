@@ -1,8 +1,11 @@
+using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Application.Features.CompanyFeatures.ReportFeatures.Commands.RequestReport;
+using OnlineMuhasebeServer.Application.Services;
 using OnlineMuhasebeServer.Application.Services.CompanyServices;
 using OnlineMuhasebeServer.Domain;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
+using OnlineMuhasebeServer.Domain.Dtos;
 using OnlineMuhasebeServer.Domain.Repositories.CompanyDbContext.ReportRepositories;
 using OnlineMuhasebeServer.Domain.UnitOfWorks;
 using OnlineMuhasebeServer.Persistance.Context;
@@ -16,12 +19,14 @@ public class ReportService : IReportService
     private readonly IReportCommandRepository _commandRepository;
     private readonly IReportQueryRepository _queryRepository;
     private readonly ICompanyDbUnitOfWork _unitOfWork;
-    public ReportService(IContextService contextService, IReportCommandRepository commandRepository, IReportQueryRepository queryRepository, ICompanyDbUnitOfWork unitOfWork)
+    private readonly IRabbitMQService _rabbitMQService;
+    public ReportService(IContextService contextService, IReportCommandRepository commandRepository, IReportQueryRepository queryRepository, ICompanyDbUnitOfWork unitOfWork, IRabbitMQService rabbitMQService)
     {
         _contextService = contextService;
         _commandRepository = commandRepository;
         _queryRepository = queryRepository;
         _unitOfWork = unitOfWork;
+        _rabbitMQService = rabbitMQService;
     }
 
     public async Task<IList<Report>> GetAllReportsByCompanyId(string companyId)
@@ -46,5 +51,20 @@ public class ReportService : IReportService
 
         await _commandRepository.AddAsync(report, cancellationToken);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+
+        SendQueue(report, request.CompanyId);
+    }
+
+    public void SendQueue(Report report, string companyId)
+    {
+        ReportDto reportDto = new()
+        {
+            Id = report.Id,
+            Name = report.Name,
+            CompanyId = companyId
+        };
+
+        _rabbitMQService.SendQueue(reportDto);
     }
 }
