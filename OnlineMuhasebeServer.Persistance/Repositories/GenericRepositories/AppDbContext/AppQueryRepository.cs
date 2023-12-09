@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EntityFrameworkCorePagination.Nuget.Pagination;
+using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Domain.Abstractions;
 using OnlineMuhasebeServer.Domain.Repositories.GenericRepositories.AppDbContext;
 using System.Linq.Expressions;
@@ -63,5 +64,6 @@ namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.AppD
                 result = result.AsNoTracking();
             return result;
         }
+
     }
 }
