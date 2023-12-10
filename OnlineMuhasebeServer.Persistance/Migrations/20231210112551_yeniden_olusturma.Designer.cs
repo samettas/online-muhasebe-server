@@ -12,15 +12,15 @@ using OnlineMuhasebeServer.Persistance.Context;
 namespace OnlineMuhasebeServer.Persistance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231130143907_main-role-and-user-relationship-table-olusturma")]
-    partial class mainroleanduserrelationshiptableolusturma
+    [Migration("20231210112551_yeniden_olusturma")]
+    partial class yenidenolusturma
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.2")
+                .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -33,7 +33,7 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DatabaseName")
@@ -63,7 +63,7 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                     b.Property<string>("Tel")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -165,7 +165,7 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                     b.Property<string>("CompanyId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRoleCreatedByAdmin")
@@ -174,7 +174,7 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -189,7 +189,7 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("MainRoleId")
@@ -198,7 +198,7 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -207,7 +207,38 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("MainRoleAndRoleRelationships");
+                    b.ToTable("MainRoleAndRoleRelationship");
+                });
+
+            modelBuilder.Entity("OnlineMuhasebeServer.Domain.AppEntities.MainRoleAndUserRelationship", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CompanyId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MainRoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("MainRoleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MainRoleAndUserRelationships");
                 });
 
             modelBuilder.Entity("OnlineMuhasebeServer.Domain.AppEntities.UserAndCompanyRelationship", b =>
@@ -221,10 +252,10 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                     b.Property<string>("CompanyId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("UpdateDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -256,6 +287,27 @@ namespace OnlineMuhasebeServer.Persistance.Migrations
                         .HasForeignKey("RoleId");
 
                     b.Navigation("AppRole");
+
+                    b.Navigation("MainRole");
+                });
+
+            modelBuilder.Entity("OnlineMuhasebeServer.Domain.AppEntities.MainRoleAndUserRelationship", b =>
+                {
+                    b.HasOne("OnlineMuhasebeServer.Domain.AppEntities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId");
+
+                    b.HasOne("OnlineMuhasebeServer.Domain.AppEntities.MainRole", "MainRole")
+                        .WithMany()
+                        .HasForeignKey("MainRoleId");
+
+                    b.HasOne("OnlineMuhasebeServer.Domain.AppEntities.Identity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("Company");
 
                     b.Navigation("MainRole");
                 });

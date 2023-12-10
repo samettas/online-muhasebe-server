@@ -30,7 +30,7 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.MainFeatures
         {
             var command = new CreateMainRoleCommand(
                 Title: "Admin",
-                CompanyId: "6d6d69aa-f579-4c8a-8886-0da214900f7f");
+                CompanyId: "8f64a3a6-05fd-4525-95b4-a7a9b0f5872b");
 
             var handler = new CreateMainRoleCommandHandler(_mainRoleService.Object);
 

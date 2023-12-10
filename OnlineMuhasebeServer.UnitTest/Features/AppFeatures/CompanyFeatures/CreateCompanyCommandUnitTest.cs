@@ -28,7 +28,7 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures
             var command = new CreateCompanyCommand(
                 Name: "Taş Ltd Şti",
                 ServerName: "localhost",
-                DatabaseName: "SametMuhasebeDb",
+                DatabaseName: "SametMuhasebe",
                 UserId: "",
                 Password: "");
 
