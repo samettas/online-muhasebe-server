@@ -63,10 +63,10 @@ public class LogService : ILogService
                     CreatedDate = (DateTime)item.CreatedDate,
                     Data = item.Data,
                     TableName = item.TableName,
-                    UserId = user.Id,
                     Progress = item.Progress,
-                    UserEmail = user.Email,
-                    UserName = $"{user.FirstName} {user.LastName}",
+                    UserId = item.UserId,
+                    UserEmail = user?.Email,
+                    UserName = $"{user?.FirstName} {user?.LastName}",
                 };
                 logDtos.Add(logDto);
             }

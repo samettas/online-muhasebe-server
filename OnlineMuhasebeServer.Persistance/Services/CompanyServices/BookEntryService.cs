@@ -73,4 +73,18 @@ public class BookEntryService : IBookEntryService
         _queryRepository.SetDbContextInstance(_context);
         return _queryRepository.GetAll().Count();
     }
+
+    public async Task<BookEntry> RemoveByIdAsync(string id, string companyId)
+    {
+        _context = (CompanyDbContext)_contextService.CreateDbContextInstance(companyId);
+        _commandRepository.SetDbContextInstance(_context);
+        _unitOfWork.SetDbContextInstance(_context);
+        _queryRepository.SetDbContextInstance(_context);
+
+        BookEntry bookEntry = await _queryRepository.GetById(id);
+        _commandRepository.Remove(bookEntry);
+        await _unitOfWork.SaveChangesAsync();
+
+        return bookEntry;
+    }
 }
