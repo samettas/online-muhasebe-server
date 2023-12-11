@@ -1,5 +1,6 @@
 ﻿using EntityFrameworkCorePagination.Nuget.Pagination;
 using OnlineMuhasebeServer.Application.Messaging;
+using OnlineMuhasebeServer.Application.Services;
 using OnlineMuhasebeServer.Application.Services.CompanyServices;
 using OnlineMuhasebeServer.Domain.CompanyEntities;
 
@@ -8,15 +9,18 @@ namespace OnlineMuhasebeServer.Application.Features.CompanyFeatures.BookEntryFea
 public sealed class GetAllBookEntryQueryHandler : IQueryHandler<GetAllBookEntryQuery, PaginationResult<GetAllBookEntryQueryResponse>>
 {
     private readonly IBookEntryService _bookEntryService;
-
-    public GetAllBookEntryQueryHandler(IBookEntryService bookEntryService)
+    private readonly IApiService _apiService;
+    public GetAllBookEntryQueryHandler(IBookEntryService bookEntryService, IApiService apiService)
     {
         _bookEntryService = bookEntryService;
+        _apiService = apiService;
     }
 
     public async Task<PaginationResult<GetAllBookEntryQueryResponse>> Handle(GetAllBookEntryQuery request, CancellationToken cancellationToken)
     {
-        PaginationResult<BookEntry> result = await _bookEntryService.GetAllAsync(request.CompanyId, request.pageNumber, request.pageSize);
+        int year = _apiService.GetYearByToken();
+
+        PaginationResult<BookEntry> result = await _bookEntryService.GetAllAsync(request.CompanyId, request.pageNumber, request.pageSize, year);
 
         int count = _bookEntryService.GetCount(request.CompanyId);
 

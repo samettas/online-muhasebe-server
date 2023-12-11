@@ -3,4 +3,5 @@
 public interface IApiService
 {
     string GetUserIdByToken();
+    int GetYearByToken();
 }
