@@ -23,8 +23,8 @@ public sealed class RemoveByIdBookEntryCommandUnitTest
     public async Task RemoveByIdBookEntryCommandResponseShouldNotBeNull()
     {
         RemoveByIdBookEntryCommand command = new(
-            Id: "",
-            CompanyId: "");
+            Id: "aa7d83f6-80b8-4278-9b3c-a6517034df29",
+            CompanyId: "8f64a3a6-05fd-4525-95b4-a7a9b0f5872b");
 
         RemoveByIdBookEntryCommandHandler handler = new RemoveByIdBookEntryCommandHandler(_service.Object, _logService.Object, _apiService.Object);
 
